@@ -5,7 +5,7 @@
 ##### Web App HTML5-based and designed to work on multiple platforms
 
 ## Usage
-1. Clone the repository: ```git clone https://github.com/ahlechandre/piano-x.git``` or ```Download ZIP``` 
+1. Clone the repository: ```git clone https://github.com/ahlechandre/piano-x.git``` or [Download ZIP](https://github.com/ahlechandre/piano-x/archive/master.zip) 
 2. Run: ```index.html```
 
 ## History 
