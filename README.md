@@ -14,4 +14,4 @@ Check the [Releases](https://github.com/ahlechandre/piano-x/releases) list
 
 ## License
 
-[MIT License](https://github.com/ahlechandre/piano-x/blob/master/LICENSE) (c) 2015 Alexandre Thebaldi 
+[MIT License](https://github.com/ahlechandre/piano-x/blob/master/LICENSE) © 2015 Alexandre Thebaldi 
