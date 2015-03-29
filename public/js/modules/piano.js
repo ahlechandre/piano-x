@@ -1,5 +1,17 @@
 define( function ()
 {
+	var Audio;
+	
+	requirejs(
+	
+		[ 'src/audiosynth' ],
+		function ( audioSynth ) 
+		{
+			Audio = Synth.createInstrument('piano');
+		}
+	
+	);
+	
   return {
 
     // "data base"
@@ -54,7 +66,7 @@ define( function ()
           // creating button element
           theNotes = document.createElement( notes.htmlElement );
           // class that's receives number of note (0-61 by default)
-          theNotes.classList.add( 'note-' + j );
+          theNotes.classList.add( j + '-note');
           // class with note name
           theNotes.classList.add( notes.musicalNotes[ value ] );
           // class define if note is sharp or normal
@@ -73,7 +85,7 @@ define( function ()
       var
         text = this.piano.notes.text;
       // all notes buttons
-      note = document.querySelectorAll( '[class*="note-"]' ),
+      note = document.querySelectorAll( '[class*="-note"]' ),
         // text with note name will be displayed
         textContainer = document.createElement( text.htmlElement ),
         i = 0;
@@ -83,9 +95,34 @@ define( function ()
         note[ i ].addEventListener( 'click', function ()
         {
           thatNote( this );
+					playSound( this );
+					console.log(this);
         } );
       }
+			
+			var playSound = function ( theNote ) 
+			{
+				
+				var note,
+						octave,
+						numberNote,
+						duration;
+						
+				note = theNote.classList[2].toUpperCase();
+				if (note[1] == 'S') 
+				{
+					note = note[0] + '#';
+				}
+				numberNote = parseInt( theNote.classList[0] );
+				octave = parseInt( (numberNote / 13)  ) + 3;
+				console.log(octave);
+				duration = 4;
+				
+				Synth.setVolume(1.0);
+				
+				Audio.play(note, octave, duration);
 
+			}
       var thatNote = function ( theNote )
       {
         var
@@ -104,7 +141,7 @@ define( function ()
         }
 
         theText = document.createTextNode( theTextNode.toUpperCase() );
-
+				
         if ( textContainer.hasChildNodes() )
         {
           textContainer.replaceChild( theText, textContainer.childNodes[ 0 ] );

@@ -6,7 +6,6 @@ requirejs( [ 'config' ], function ()
 	{
 		// initializing piano
 		piano.start();
-
 	} );
 
 } );
